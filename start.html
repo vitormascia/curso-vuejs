@@ -11,15 +11,28 @@
 <body>
     <div id="start">
         <h1>{{message}}</h1>
+        <button v-on:click="changeMessage('Mascia')">Change Message</button>
     </div>
+    <!-- Classic Import -->
+    <!-- <script src="vue.js"></script> -->
 
-    <script src="vue.js"></script>
+    <!-- CDN Import -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script> -->
+
+    <!-- NPM Import -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+
     <script>
         let app = new Vue({
             el: "#start",
             data: {
                 message: "Hello World"
             },
+            methods: {
+                changeMessage: function (newMessage) {
+                    this.message = newMessage
+                }
+            }
         })
     </script>
 </body>
