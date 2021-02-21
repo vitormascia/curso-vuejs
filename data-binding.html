@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Binding</title>
+</head>
+
+<body>
+    <div id="data_binding">
+        <h1 v-bind:title="tagMessage">{{message}}</h1>
+        <h2>Em CapsLock: {{message.toUpperCase()}}</h2>
+        <h2>My name is {{person.name}}, {{person.age}} years old</h2>
+        <span v-html="tag"></span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#data_binding",
+            data: {
+                message: "Hello World",
+                person: {
+                    name: "Vitor Mascia",
+                    age: 25
+                },
+                tag: "<button>Lorem Ipsum</button>",
+                tagMessage: "This is some information"
+            }
+        })
+    </script>
+</body>
+
+</html>

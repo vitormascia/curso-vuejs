@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed Properties</title>
+</head>
+
+<body>
+    <div id="computed_properties">
+        <h1>My name is {{fullName}}</h1>
+        <h1>My car slogan is {{carSlogan}}</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: "#computed_properties",
+            data: {
+                message: "Hello World",
+                person: {
+                    firstName: "Vitor",
+                    lastName: "Mascia"
+                },
+                car: {
+                    brand: "Mitsubishi",
+                    year: 2021
+                }
+            },
+            computed: {
+                fullName() {
+                    return `${this.person.firstName} ${this.person.lastName}`
+                },
+                carSlogan: {
+                    get() {
+                        return `${this.car.brand} - ${this.car.year}`
+
+                    },
+                    set(newSlogan) {
+                        slogan = newSlogan.split(" - ")
+
+                        this.car.brand = slogan[0]
+                        this.car.year = slogan[1]
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
